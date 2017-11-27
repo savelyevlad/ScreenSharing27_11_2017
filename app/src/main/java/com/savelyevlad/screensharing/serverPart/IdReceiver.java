@@ -29,7 +29,7 @@ public class IdReceiver implements Runnable {
             datagramSocket = PublicStaticObjects.getDatagramSocket();
 
 //        datagramSocket = datSock;
-            DatagramPacket datagramPacket = new DatagramPacket(new byte[]{14, 88, -1}, 3, InetAddress.getByName("192.168.43.106"), 50000);
+            DatagramPacket datagramPacket = new DatagramPacket(new byte[]{14, 88, -1}, 3, PublicStaticObjects.getInetAddress(), 50000);
 //        DatagramPacket packet = new DatagramPacket(new byte[] {14, 88, -1}, 3, InetAddress.getByName("192.168.43.106"), 50000);
             Log.e("kek", "33");
             datagramSocket.send(datagramPacket);

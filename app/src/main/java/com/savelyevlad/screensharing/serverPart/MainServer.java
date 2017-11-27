@@ -30,7 +30,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.net.DatagramSocket;
 import java.nio.ByteBuffer;
 import java.util.Date;
 
@@ -154,14 +153,15 @@ public class MainServer extends Activity {
 
                 // create bitmap
                 bitmap = Bitmap.createBitmap(displayWidth + rowPadding / pixelStride,
-                        displayHeight, Bitmap.Config.ARGB_8888);
+                        displayHeight, Bitmap.Config.ARGB_4444);
                 bitmap.copyPixelsFromBuffer(buffer);
+                Bitmap bitmap1 = bitmap.copy(Bitmap.Config.ARGB_4444, false);
 
-                writeToFile(bitmap);
+//                writeToFile(bitmap1);
 
                 if(started) {
-                    imageSender.getQueue().add(bitmapToByteArray(bitmap));
-                    oldBitmap = bitmap;
+                    imageSender.getQueue().add(bitmapToByteArray(bitmap1));
+                    oldBitmap = bitmap1;
                 }
             }
         }

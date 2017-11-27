@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     // For sending
     private int PORT = 50000;
-    private String address = "192.168.43.106";
+    private String address = "10.1.1.100";
 
     private DatagramSocket datagramSocket;
 
@@ -71,7 +71,9 @@ public class MainActivity extends AppCompatActivity {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
         datagramSocket = PublicStaticObjects.getDatagramSocket();
+
         try {
 //            PublicStaticObjects.setDatagramSocket(datagramSocket);
             PublicStaticObjects.setInetAddress(InetAddress.getByName(address));
